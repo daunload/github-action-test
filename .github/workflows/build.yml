@@ -29,3 +29,13 @@ jobs:
           # If the commit is tagged with a version (e.g. "v1.0.0"),
           # release the app after building
           release: ${{ startsWith(github.ref, 'refs/tags/v') }}
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          files: |
+            dist/*.exe
+          body: '🚀 Electron 앱 새 버전이 출시되었습니다!'
+        env:
+          GITHUB_TOKEN: ${{ secrets.github_token }}
