@@ -35,6 +35,7 @@ jobs:
         with:
           tag_name: ${{ github.ref_name }}
           files: |
+            dist/*.dmg
             dist/*.exe
           body: '🚀 Electron 앱 새 버전이 출시되었습니다!'
         env:
